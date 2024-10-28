@@ -1,21 +1,11 @@
-# Python cache files
+# Ignore Python cache and virtual environments
 __pycache__/
 *.pyc
-*.pyo
-
-# Virtual environment
-venv/
 .env
+venv/
+.vscode/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# Model files
-models/*.h5
-
-# Raw data files
-data/raw/
-data/processed/
-
-# Node.js dependencies
-frontend/node_modules/
+# Ignore Docker artifacts
+*.log
+*.db
+node_modules/
