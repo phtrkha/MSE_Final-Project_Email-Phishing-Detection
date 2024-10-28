@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Email Detect Center</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="model-buttons">
+            <button id="naive-bayes" onclick="selectModel('NAIVE-BAYES')">Naive Bayes</button>
+            <button id="lstm" onclick="selectModel('LSTM')">LSTM</button>
+            <button id="gru" onclick="selectModel('GRU')">GRU</button>
+            <button id="gpt-3.5-turbo" onclick="selectModel('GPT-3.5-TURBO')">GPT 3.5 T</button>
+            <button id="gpt-4" onclick="selectModel('GPT-4')">GPT 4.0</button>
+        </div>
+        <div class="user-info">
+            <span id="username-display"></span>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="text-center mb-4">
+            <img src="image/logo.webp" alt="Logo" style="width: 100%;">
+        </div>
+        <a href="dashboard.html">📊 Dashboard</a>
+        <a class="active" href="detail.html">📋 Details</a>
+        <a href="campaign.html">🎯 Campaign</a>
+        <a href="wiki.html">📚 Wiki</a>
+        <a href="setting.html">⚙️ Setting</a>
+
+        <footer class="sidebar-footer">
+            <div class="container">
+                <p>&copy; Copyright by Group 3 - MSE</p>
+                <p>Contact Us:</p>
+                <p>Luc Khong - ML/DL Engineer</p>
+                <p>Kha Pham - System Administrator</p>
+                <p>Phong Huynh - Full Stack Developer</p>
+                <p>Hiep Le - Gen AI Engineer</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-users"></i> <span class="double-icon">📧</span> Total Recipients</h5>
+                            <p class="card-text" id="recipients">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-exclamation-circle"></i> <span class="double-icon">🎣</span> Total Phishing</h5>
+                            <p class="card-text" id="total-phishing">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-question-circle"></i> <span class="double-icon">✅👤</span> Report Legit</h5>
+                            <p class="card-text" id="unclassified">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-chart-pie"></i> <span class="double-icon">🚨👤</span> Report Phishing</h5>
+                            <p class="card-text" id="report-by-users">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4 table-container">
+                <div class="col-md-12 text-center">
+                    <h3 class="text-center">New Incoming Emails</h3>
+                    <input type="text" id="searchBox" onkeyup="searchTable()" placeholder="Search in table                                🔎" class="form-control mb-3" style="max-width: 300px; margin: 0 auto;">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Mail Id</th>
+                                    <th>Action?</th>
+                                    <th>Classify By AI</th>
+                                    <th>Model Predicted</th>
+                                    <th>Received Date Time</th>
+                                    <th>Re-classify By</th>
+                                    <th>Re-classify</th>
+                                    <th>From Email</th>
+                                    <th>To Email</th>
+                                    <th>Subject</th>
+                                    <th>Body Preview</th>
+                                    <th>isRead?</th>
+                                    <th>Last Modified</th>
+                                </tr>
+                            </thead>
+                            <tbody id="newest-emails">
+                                <!-- Data will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="email-popup-overlay" style="display: none;">
+        <div id="email-popup">
+            <div id="email-popup-content">
+                <!-- Nội dung chi tiết email sẽ được thêm vào đây bằng JavaScript -->
+            </div>
+            
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

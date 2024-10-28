@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .logo {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="Image/logo.webp" alt="Email Protection Center Logo" class="logo">
+        <h1>Login</h1>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required><br/><br/><br/>
+        <button onclick="login()">Login</button>
+        <div class="error" id="error-message"></div>
+    </div>
+    <script>
+        function login() {
+            const users = {
+                "kha.pham": {
+                    password: "123456",
+                    fullName: "Kha Pham",
+                    role: "System Administrator"
+                },
+                "phong.huynh": {
+                    password: "123456",
+                    fullName: "Phong Huynh",
+                    role: "Full Stack Developer"
+                },
+                "luc.khong": {
+                    password: "123456",
+                    fullName: "Luc Khong",
+                    role: "ML/DL Engineer"
+                },
+                "hiep.le": {
+                    password: "123456",
+                    fullName: "Hiep Le",
+                    role: "Gen AI Engineer"
+                }
+            };
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (users[username] && users[username].password === password) {
+                localStorage.setItem('username', username);
+                localStorage.setItem('fullName', users[username].fullName);
+                localStorage.setItem('role', users[username].role);
+                window.location.href = 'dashboard.html'; // Redirect to dashboard
+            } else {
+                errorMessage.textContent = 'Invalid username or password';
+            }
+        }
+    
+    </script>
+</body>
+</html>

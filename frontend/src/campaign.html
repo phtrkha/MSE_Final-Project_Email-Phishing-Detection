@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Email Detect Center</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="model-buttons">
+            <button id="naive-bayes" onclick="selectModel('NAIVE-BAYES')">Naive Bayes</button>
+            <button id="lstm" onclick="selectModel('LSTM')">LSTM</button>
+            <button id="gru" onclick="selectModel('GRU')">GRU</button>
+            <button id="gpt-3.5-turbo" onclick="selectModel('GPT-3.5-TURBO')">GPT 3.5 T</button>
+            <button id="gpt-4" onclick="selectModel('GPT-4')">GPT 4.0</button>
+        </div>
+        <div class="user-info">
+            <span id="username-display"></span>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="text-center mb-4">
+            <img src="image/logo.webp" alt="Logo" style="width: 100%;">
+        </div>
+        <a href="dashboard.html">📊 Dashboard</a>
+        <a href="detail.html">📋 Details</a>
+        <a class="active" href="campaign.html">🎯 Campaign</a>
+        <a href="wiki.html">📚 Wiki</a>
+        <a href="setting.html">⚙️ Setting</a>
+
+        <footer class="sidebar-footer">
+            <div class="container">
+                <p>&copy; Copyright by Group 3 - MSE</p>
+                <p>Contact Us:</p>
+                <p>Luc Khong - ML/DL Engineer</p>
+                <p>Kha Pham - System Administrator</p>
+                <p>Phong Huynh - Full Stack Developer</p>
+                <p>Hiep Le - Gen AI Engineer</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="main-content">
+                <div class="container">
+                    <img src="image/comingsoon.jpg" width="80%" ></img>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
