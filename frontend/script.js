@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fetch current model
     function fetchCurrentModel() {
-        fetch('https://test-api.intelnet.vn/api/model/current')
+        fetch('http://127.0.0.1:5002/api/model/current')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Send API request to activate model
-        fetch('https://test-api.intelnet.vn/api/model/setup', {
+        fetch('http://127.0.0.1:5002/api/model/setup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'login.html';
     };
 
-    const totalEmailsUrl = 'https://test-api.intelnet.vn/api/emails/count';
-    const newestEmailsUrl = 'https://test-api.intelnet.vn/api/emails/ordered-by-received-datetime';
+    const totalEmailsUrl = 'http://127.0.0.1:5002/api/emails/count';
+    const newestEmailsUrl = 'http://127.0.0.1:5002/api/emails/ordered-by-received-datetime';
 
     // Fetch and update total emails and details immediately when the page is loaded
     fetchAndUpdateTotalEmails();
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fetch email details and display in a new window
     window.fetchEmailDetails = function(emailId) {
-        fetch('https://test-api.intelnet.vn/api/email/' + emailId)
+        fetch('http://127.0.0.1:5002/api/email/' + emailId)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //const newClassificationColor = newClassification === 'Phishing' ? '#ff0000' : '#008000';
             
             // Send API request to update classification
-            fetch('https://test-api.intelnet.vn/api/classify_email', {
+            fetch('http://127.0.0.1:5002/api/classify_email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Total and Phishing Emails Over Time (Line Chart)
         function fetchEmailStatistics() {
-            fetch('https://test-api.intelnet.vn/api/emails/total-by-date')
+            fetch('http://127.0.0.1:5002/api/emails/total-by-date')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -347,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Open and Report Phishing Emails Over Time (Line Chart)
         function PhisingOpenAndReportByUser() {
-            fetch('https://test-api.intelnet.vn/api/emails/phishing-by-date')
+            fetch('http://127.0.0.1:5002/api/emails/phishing-by-date')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Phishing Emails by Model (Doughnut Chart)
         function fetchPhishingEmailByModel() {
-            fetch('https://test-api.intelnet.vn/api/emails/count-by-model')
+            fetch('http://127.0.0.1:5002/api/emails/count-by-model')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok ' + response.statusText);
@@ -490,7 +490,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Top Targeted Users (Horizontal Bar Chart)
         function fetchTopTargetedUsers() {
-            fetch('https://test-api.intelnet.vn/api/emails/top-users-with-phishing')
+            fetch('http://127.0.0.1:5002/api/emails/top-users-with-phishing')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok ' + response.statusText);
@@ -564,6 +564,6 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchTopTargetedUsers();
     
         // Set up data refresh every 5 seconds
-        setInterval(fetchTopTargetedUsers, 5000);
+        //setInterval(fetchTopTargetedUsers, 5000);
     }
 });
