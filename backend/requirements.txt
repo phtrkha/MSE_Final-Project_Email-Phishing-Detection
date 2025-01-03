@@ -1,0 +1,11 @@
+flask
+msal
+mysql-connector-python
+flask-cors
+bs4
+numpy
+#keras
+#tensorflow
+openai
+nltk
+scikit-learn
